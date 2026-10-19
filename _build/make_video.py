@@ -6,6 +6,7 @@ import imageio_ffmpeg
 from PIL import Image, ImageFilter
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
+WITH_COUPLE = '--couple' in sys.argv   # пару убрали по просьбе; вернуть: python make_video.py --couple
 mask = np.load('mask.npy')
 br = cv2.boundingRect(mask)
 center = (br[0] + br[2] // 2, br[1] + br[3] // 2)
@@ -44,10 +45,11 @@ def process(name, night):
         src = f.copy()
         src[340:700, 378:778] = f[340:700, 0:400][:, ::-1]
         f = cv2.seamlessClone(src, f, mask.copy(), center, cv2.NORMAL_CLONE)   # копия: OpenCV портит маску при повторных вызовах
-        reg = f[oy:oy + ch, ox:ox + cw].astype(np.float32) / 255
-        grain = np.random.normal(0, 0.018, col.shape).astype(np.float32)
-        reg = reg * (1 - alpha) + np.clip(col + grain, 0, 1) * alpha
-        f[oy:oy + ch, ox:ox + cw] = (reg * 255).astype(np.uint8)
+        if WITH_COUPLE:
+            reg = f[oy:oy + ch, ox:ox + cw].astype(np.float32) / 255
+            grain = np.random.normal(0, 0.018, col.shape).astype(np.float32)
+            reg = reg * (1 - alpha) + np.clip(col + grain, 0, 1) * alpha
+            f[oy:oy + ch, ox:ox + cw] = (reg * 255).astype(np.uint8)
         if i == 0: cv2.imencode('.jpg', f, [cv2.IMWRITE_JPEG_QUALITY, 86])[1].tofile(name + '_poster.jpg')
         p.stdin.write(f.tobytes())
         i += 1
