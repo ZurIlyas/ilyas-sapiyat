@@ -1,0 +1,105 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}svg{display:block}</style></head>
+<body>
+<!-- Жених и невеста со спины, держатся за руки. Бокс 260×360, земля на y≈352. Рендер в 2×. -->
+<svg width="520" height="720" viewBox="0 0 260 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="jacket" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#4b5361"/><stop offset=".35" stop-color="#2e3440"/><stop offset="1" stop-color="#1c2028"/>
+    </linearGradient>
+    <linearGradient id="trous" x1="0" x2="1"><stop offset="0" stop-color="#2d323c"/><stop offset="1" stop-color="#191c22"/></linearGradient>
+    <linearGradient id="hairM" x1="0" x2="1"><stop offset="0" stop-color="#3a2a20"/><stop offset=".4" stop-color="#20160f"/><stop offset="1" stop-color="#140e0a"/></linearGradient>
+    <linearGradient id="hairF" x1="0" x2="1"><stop offset="0" stop-color="#8a6243"/><stop offset=".5" stop-color="#5e3f2a"/><stop offset="1" stop-color="#3d2819"/></linearGradient>
+    <linearGradient id="skin" x1="0" x2="1"><stop offset="0" stop-color="#f1cfb4"/><stop offset="1" stop-color="#c99a7c"/></linearGradient>
+    <linearGradient id="dress" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#f6f3ee"/><stop offset="1" stop-color="#d9d4cc"/>
+    </linearGradient>
+    <linearGradient id="skirt" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".3" stop-color="#f8f5f0"/><stop offset=".7" stop-color="#e8e3db"/><stop offset="1" stop-color="#cfc8be"/>
+    </linearGradient>
+    <linearGradient id="skirtV" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#3b3a30" stop-opacity=".18"/>
+    </linearGradient>
+    <linearGradient id="veil" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".75"/><stop offset=".5" stop-color="#ffffff" stop-opacity=".42"/><stop offset="1" stop-color="#ffffff" stop-opacity=".22"/>
+    </linearGradient>
+    <radialGradient id="shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#1d2a10" stop-opacity=".55"/><stop offset="1" stop-color="#1d2a10" stop-opacity="0"/></radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation=".35"/></filter>
+  </defs>
+
+  <!-- тени на траве -->
+  <ellipse cx="128" cy="352" rx="125" ry="11" fill="url(#shadow)"/>
+
+  <g filter="url(#soft)">
+  <!-- ===== ЖЕНИХ ===== -->
+  <!-- брюки -->
+  <path d="M54 205 L52 300 Q52 330 55 346 L73 346 L76 250 L78 250 L81 346 L99 346 Q101 320 100 290 L99 205 Z" fill="url(#trous)"/>
+  <path d="M77 214 L77.5 345" stroke="#11141a" stroke-width="1"/>
+  <!-- туфли -->
+  <path d="M52 344 Q51 353 58 354 L74 354 Q76 350 73 344 Z" fill="#0c0d10"/>
+  <path d="M80 344 Q79 353 86 354 L101 354 Q103 350 100 344 Z" fill="#0c0d10"/>
+  <!-- левая рука (опущена) -->
+  <path d="M42 80 Q32 120 34 160 Q35 185 38 196 L48 196 Q48 170 50 140 Z" fill="url(#jacket)"/>
+  <path d="M37 194 Q35 205 40 210 Q47 210 48 200 L47 194 Z" fill="url(#skin)"/>
+  <!-- пиджак -->
+  <path d="M40 78 Q44 66 62 63 L88 63 Q106 66 111 78 Q114 110 106 150 Q104 172 104 208 L50 208 Q49 172 47 150 Q38 110 40 78 Z" fill="url(#jacket)"/>
+  <path d="M76 66 L76 208" stroke="#161a21" stroke-width="1.1" opacity=".8"/>
+  <path d="M76 186 L76 208" stroke="#0d1015" stroke-width="2"/>
+  <path d="M50 150 Q76 158 104 150" stroke="#161a21" stroke-width=".8" fill="none" opacity=".6"/>
+  <!-- блик на плечах от солнца -->
+  <path d="M44 76 Q60 66 76 66" stroke="#7d8696" stroke-width="2.2" fill="none" opacity=".55" stroke-linecap="round"/>
+  <!-- правая рука тянется к невесте -->
+  <path d="M106 80 Q118 110 122 150 Q125 172 130 184 L121 190 Q114 170 110 150 Q104 120 100 95 Z" fill="url(#jacket)"/>
+  <!-- воротник рубашки и шея -->
+  <path d="M65 64 Q76 58 87 64 L86 67 Q76 62 66 67 Z" fill="#f4f2ee"/>
+  <path d="M67 52 Q76 56 85 52 L86 64 Q76 61 66 64 Z" fill="url(#skin)"/>
+  <!-- голова: затылок, уши -->
+  <ellipse cx="62" cy="40" rx="3.2" ry="5.5" fill="#d7a98a"/>
+  <ellipse cx="90" cy="40" rx="3.2" ry="5.5" fill="#c4937a"/>
+  <path d="M60 36 Q60 16 76 15 Q92 16 92 36 Q92 50 86 55 Q76 58 66 55 Q60 50 60 36 Z" fill="url(#hairM)"/>
+  <path d="M64 24 Q72 17 82 18" stroke="#5a4334" stroke-width="1.6" fill="none" opacity=".6" stroke-linecap="round"/>
+  <path d="M66 54 Q76 57 86 54" stroke="#0d0907" stroke-width="1.2" fill="none"/>
+
+  <!-- ===== НЕВЕСТА ===== -->
+  <!-- шлейф и пышная юбка -->
+  <path d="M152 140 Q140 190 126 250 Q114 300 106 348 Q150 356 196 354 Q236 352 252 344 Q244 300 226 252 Q208 196 196 140 Z" fill="url(#skirt)"/>
+  <path d="M152 140 Q140 190 126 250 Q114 300 106 348 Q150 356 196 354 Q236 352 252 344 Q244 300 226 252 Q208 196 196 140 Z" fill="url(#skirtV)"/>
+  <!-- складки юбки -->
+  <g stroke="#cfc9bf" stroke-width="1.1" fill="none" opacity=".75">
+    <path d="M160 150 Q150 240 134 348"/><path d="M170 150 Q166 250 160 352"/><path d="M180 150 Q186 250 192 353"/>
+    <path d="M189 148 Q204 240 224 350"/><path d="M196 160 Q222 240 244 344"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="1.4" fill="none" opacity=".8">
+    <path d="M156 150 Q142 240 122 345"/><path d="M175 152 Q176 250 176 352"/>
+  </g>
+  <!-- левая рука невесты к жениху, руки сцеплены -->
+  <path d="M152 76 Q142 110 138 140 Q134 165 128 182 L136 188 Q143 168 148 142 Q153 112 158 88 Z" fill="url(#skin)"/>
+  <ellipse cx="127.5" cy="188" rx="7" ry="6" fill="#e2b89b"/>
+  <!-- корсет -->
+  <path d="M150 84 Q174 78 198 84 L196 140 Q174 146 152 140 Z" fill="url(#dress)"/>
+  <path d="M152 140 Q174 146 196 140" stroke="#d8d2c8" stroke-width="1.5" fill="none"/>
+  <!-- шнуровка корсета по спине -->
+  <g stroke="#cbc4b8" stroke-width=".9">
+    <path d="M171 88 L177 94 M177 88 L171 94 M171 98 L177 104 M177 98 L171 104 M171 108 L177 114 M177 108 L171 114 M171 118 L177 124 M177 118 L171 124 M171 128 L177 134 M177 128 L171 134"/>
+  </g>
+  <!-- открытые плечи и спина -->
+  <path d="M152 86 Q148 72 158 66 Q174 60 190 66 Q200 72 196 86 Q174 80 152 86 Z" fill="url(#skin)"/>
+  <!-- правая рука -->
+  <path d="M196 78 Q206 110 208 140 Q210 160 207 176 L200 176 Q200 150 198 130 Q194 104 190 86 Z" fill="url(#skin)"/>
+  <!-- шея и голова -->
+  <path d="M167 56 Q174 60 181 56 L182 66 Q174 64 166 66 Z" fill="url(#skin)"/>
+  <ellipse cx="160" cy="44" rx="2.6" ry="4.5" fill="#e0b394"/>
+  <path d="M158 40 Q158 22 174 21 Q190 22 190 40 Q190 52 184 57 Q174 60 164 57 Q158 52 158 40 Z" fill="url(#hairF)"/>
+  <!-- пучок -->
+  <circle cx="174" cy="44" r="11" fill="#5b3c28"/>
+  <path d="M165 42 Q170 34 180 37 M166 48 Q174 52 183 46 M168 39 Q175 44 182 41" stroke="#9a7254" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  <path d="M162 30 Q172 24 184 28" stroke="#a37a5a" stroke-width="1.6" fill="none" opacity=".7" stroke-linecap="round"/>
+  <!-- жемчужный гребень -->
+  <g fill="#fffaf0"><circle cx="165" cy="35" r="1.6"/><circle cx="169" cy="32.5" r="1.6"/><circle cx="174" cy="31.5" r="1.6"/><circle cx="179" cy="32.5" r="1.6"/><circle cx="183" cy="35" r="1.6"/></g>
+  <!-- фата -->
+  <path d="M166 36 Q174 33 182 36 Q200 80 214 150 Q232 240 248 348 Q200 358 150 354 Q132 352 118 346 Q130 250 146 160 Q156 90 166 36 Z" fill="url(#veil)"/>
+  <path d="M168 40 Q156 140 128 344 M178 40 Q196 150 236 346" stroke="#ffffff" stroke-width="1" opacity=".55" fill="none"/>
+  </g>
+</svg>
+</body></html>
